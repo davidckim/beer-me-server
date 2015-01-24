@@ -3378,3 +3378,304 @@ Processing by BeersController#show as HTML
   [1m[35mLocation Load (0.2ms)[0m  SELECT "locations".* FROM "locations" INNER JOIN "beers_locations" ON "locations"."id" = "beers_locations"."location_id" WHERE "beers_locations"."beer_id" = $1  [["beer_id", 3]]
   [1m[36mCACHE (0.0ms)[0m  [1mSELECT "locations".* FROM "locations" INNER JOIN "beers_locations" ON "locations"."id" = "beers_locations"."location_id" WHERE "beers_locations"."beer_id" = $1[0m  [["beer_id", 3]]
 Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for ::1 at 2015-01-24 09:44:12 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.4ms)[0m  SELECT "beers".* FROM "beers"
+Completed 200 OK in 46ms (Views: 4.5ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/" for ::1 at 2015-01-24 09:44:14 -0800
+Processing by BeersController#index as HTML
+  [1m[36mBeer Load (0.2ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+Completed 200 OK in 1ms (Views: 0.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-01-24 09:45:05 -0800
+
+ActiveRecord::NoDatabaseError (FATAL:  database "pg_development" does not exist
+):
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:661:in `rescue in connect'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.0) lib/active_record/migration.rb:384:in `connection'
+  activerecord (4.2.0) lib/active_record/migration.rb:371:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.6ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.6ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (14.5ms)
+
+
+Started GET "/" for ::1 at 2015-01-24 09:45:08 -0800
+
+ActiveRecord::NoDatabaseError (FATAL:  database "pg_development" does not exist
+):
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:661:in `rescue in connect'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:651:in `connect'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:242:in `initialize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `new'
+  activerecord (4.2.0) lib/active_record/connection_adapters/postgresql_adapter.rb:44:in `postgresql_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:436:in `new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:446:in `checkout_new_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:422:in `acquire_connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:349:in `block in checkout'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:348:in `checkout'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:263:in `block in connection'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:262:in `connection'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:565:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:113:in `retrieve_connection'
+  activerecord (4.2.0) lib/active_record/connection_handling.rb:87:in `connection'
+  activerecord (4.2.0) lib/active_record/migration.rb:384:in `connection'
+  activerecord (4.2.0) lib/active_record/migration.rb:371:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (2.4ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.5ms)
+
+
+Started GET "/" for ::1 at 2015-01-24 09:46:55 -0800
+
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+	bin/rake db:migrate RAILS_ENV=development
+
+):
+  activerecord (4.2.0) lib/active_record/migration.rb:393:in `check_pending!'
+  activerecord (4.2.0) lib/active_record/migration.rb:374:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.0) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.0) lib/rack/lock.rb:17:in `call'
+  rack (1.6.0) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.0) lib/rack/handler/webrick.rb:89:in `service'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.9ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.1ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /Users/tinadoyle/.rbenv/versions/2.0.0-p481/lib/ruby/gems/2.0.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (12.5ms)
+  [1m[36m (6.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL) [0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX  "unique_schema_migrations" ON "schema_migrations"  ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateBeers (20150123005539)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (26.1ms)[0m  [1mCREATE TABLE "beers" ("id" serial primary key, "name" character varying, "abv" character varying, "rating" character varying, "price" character varying) [0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150123005539"]]
+  [1m[36m (6.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateLocations (20150123010143)
+  [1m[35m (6.0ms)[0m  BEGIN
+  [1m[36m (3.2ms)[0m  [1mCREATE TABLE "locations" ("id" serial primary key, "name" character varying, "address" character varying, "zip_code" integer) [0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150123010143"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateBeersLocations (20150123190904)
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36m (1.9ms)[0m  [1mCREATE TABLE "beers_locations" ("id" serial primary key, "beer_id" integer, "location_id" integer) [0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20150123190904"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.8ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'beers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (2.2ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'beers_locations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (2.1ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'locations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+
+
+Started GET "/" for ::1 at 2015-01-24 10:01:53 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.4ms)[0m  SELECT "beers".* FROM "beers"
+Completed 200 OK in 40ms (Views: 1.2ms | ActiveRecord: 1.3ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (2.5ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'beers'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[35m (1.7ms)[0m  SELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'beers_locations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+
+  [1m[36m (1.6ms)[0m  [1mSELECT t2.oid::regclass::text AS to_table, a1.attname AS column, a2.attname AS primary_key, c.conname AS name, c.confupdtype AS on_update, c.confdeltype AS on_delete
+FROM pg_constraint c
+JOIN pg_class t1 ON c.conrelid = t1.oid
+JOIN pg_class t2 ON c.confrelid = t2.oid
+JOIN pg_attribute a1 ON a1.attnum = c.conkey[1] AND a1.attrelid = t1.oid
+JOIN pg_attribute a2 ON a2.attnum = c.confkey[1] AND a2.attrelid = t2.oid
+JOIN pg_namespace t3 ON c.connamespace = t3.oid
+WHERE c.contype = 'f'
+  AND t1.relname = 'locations'
+  AND t3.nspname = ANY (current_schemas(false))
+ORDER BY c.conname
+[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/" for ::1 at 2015-01-24 10:02:54 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.4ms)[0m  SELECT "beers".* FROM "beers"
+Completed 200 OK in 39ms (Views: 1.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/" for ::1 at 2015-01-24 10:02:55 -0800
+Processing by BeersController#index as HTML
+  [1m[36mBeer Load (0.2ms)[0m  [1mSELECT "beers".* FROM "beers"[0m
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-01-24 10:02:57 -0800
+Processing by BeersController#index as HTML
+  [1m[35mBeer Load (0.3ms)[0m  SELECT "beers".* FROM "beers"
+Completed 200 OK in 1ms (Views: 0.6ms | ActiveRecord: 0.3ms)
