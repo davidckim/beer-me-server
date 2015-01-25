@@ -4,8 +4,16 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+beer_one: 
+  name: beer1
+  abv: 4.5%
+  rating: 3stars
+  price: $4.50
+  locations: location_one, location_two, location_three, location_four
+
+beer_two: 
+  name: beer2
+  abv: 5.6%
+  rating: "**"
+  price: $2
+  locations: location_four, location_five, 
