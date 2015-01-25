@@ -31,7 +31,7 @@ class BeersController < ApplicationController
 				beer[:locations] = @locs
 		end
 
-		@beers.sort_by{|beer| beer["rank"]}
+		@beers = @beers.sort_by{|beer| beer[:rank]}
 
 		render json: @beers
 	end
