@@ -1,5 +1,5 @@
 class BeersController < ApplicationController
-	def index 
+	def index
 		@beers = Beer.all
 		render json: @beers
 	end
@@ -10,7 +10,7 @@ class BeersController < ApplicationController
 		@locations.each do |bar|
 			@beers_array << bar.beers
 		end
-		
+
 		@beers_array.flatten!
 		@beers = []
 		@beers_array.each do |beer|
@@ -31,7 +31,7 @@ class BeersController < ApplicationController
 				beer[:locations] = @locs
 		end
 
-		@beers.sort_by{|beer| beer["rank"]}
+		@beers = @beers.sort_by{|beer| beer[:rank]}
 
 		render json: @beers
 	end
