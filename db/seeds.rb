@@ -14,13 +14,9 @@ beer1 = Beer.create(
 		abv: "9.5%", 
 		rating: "*****", 
 		price: "$8.75", 
+		locations: [location1, location2]
 	}
 ) 						
-
-beer1.locations << location1
-beer1.locations << location2
-
-
 
 location3 = Location.create({name: "The Beer Hall", address: "9023 Haight St, San Francisco, CA", zip_code: 94111})
 location4 = Location.create({name: "Chug'n'Go", address: "209 Porter Rd., Barrel Aged, OG", zip_code: 76555})
