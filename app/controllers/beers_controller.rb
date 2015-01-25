@@ -40,7 +40,7 @@ class BeersController < ApplicationController
 
 	private
 	def set_cors_headers
-		headers['Access-Controll-Allow-Origin'] = "*"
+		headers['Access-Control-Allow-Origin'] = "*"
 		headers['Access-Control-Allow-Methods'] = "GET"
 		headers['Access-Control-Allow-Headers'] = "Origin, Content-Type, Accept, Authorization, Token"
 	end
