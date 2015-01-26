@@ -1,5 +1,3 @@
-
-
 require 'nokogiri'
 require 'open-uri'
 
@@ -44,6 +42,7 @@ require 'open-uri'
 
 #   counter += 1
 # end
+
 
 # counter = 1
 

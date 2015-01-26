@@ -4,8 +4,29 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+location_one: 
+  name: loc1
+  address: 1 Address
+  zip_code: 94110
+
+location_two: 
+  name: loc2
+  address: 2 Address
+  zip_code: 35640
+
+location_three: 
+  name: loc3
+  address: 3 Address 
+  zip_code: 34501
+
+location_four: 
+  name: loc4
+  address: 4 Address 
+  zip_code: 94110
+
+location_five: 
+  name: loc5
+  address: 5 Address 
+  zip_code: 94110
+
+

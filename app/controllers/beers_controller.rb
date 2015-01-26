@@ -1,10 +1,12 @@
 class BeersController < ApplicationController
+	before_filter :set_cors_headers
 	def index
 		@beers = Beer.all
 		render json: @beers
 	end
 
 	def show
+
 		@locations = Location.where(zip_code: params[:id])
 		@beers_array = []
 		@locations.each do |bar|
@@ -32,9 +34,16 @@ class BeersController < ApplicationController
 				beer[:locations] = @locs
 		end
 
-		@beers.sort_by{|beer| beer["rank"]}
+		@beers = @beers.sort_by{|beer| beer[:rank]}
 
 		render json: @beers
+	end
+
+	private
+	def set_cors_headers
+		headers['Access-Control-Allow-Origin'] = "*"
+		headers['Access-Control-Allow-Methods'] = "GET"
+		headers['Access-Control-Allow-Headers'] = "Origin, Content-Type, Accept, Authorization, Token"
 	end
 
 end
