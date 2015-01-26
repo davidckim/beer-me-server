@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20150123190904) do
     t.string "abv"
     t.string "rating"
     t.string "price"
+    t.string "image"
   end
 
   create_table "beers_locations", force: :cascade do |t|
