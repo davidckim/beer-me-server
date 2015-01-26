@@ -5,6 +5,7 @@ class CreateBeers < ActiveRecord::Migration
     	t.string :abv
     	t.string :rating
     	t.string :price
+      t.string :image
     end
   end
 end
