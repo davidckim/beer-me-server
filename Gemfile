@@ -7,6 +7,7 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
+gem 'activesupport'
 
 gem 'rails_12factor'
 
