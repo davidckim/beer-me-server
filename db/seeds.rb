@@ -178,10 +178,11 @@ def seed_ratings
 end
 
 def filter_beer_name(beer_name)
-  beer_name.gsub(/[äöü]/) do |match|
+  beer_name.gsub(/[äöü’]/) do |match|
     case match
       when "ä" then "a"
       when "ö" then "o"
+      when "’" then ""
       when "ü" then "u" 
      end      
   end
