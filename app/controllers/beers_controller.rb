@@ -40,6 +40,7 @@ class BeersController < ApplicationController
 				rank: beer.locations.count,
 				price: beer.price,
 				image: beer.image,
+				rating: beer.rating,
 				locations: beer.locations
 			}
 		end
