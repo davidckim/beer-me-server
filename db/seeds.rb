@@ -93,7 +93,7 @@ def seed_cities(city_array)
     @city = city.downcase.split(' ').join('-')
     counter = 1
 
-    while counter <= 5 do
+    while counter <= 1 do
 
       establishment = Nokogiri::HTML(open("https://www.beermenus.com/#{@city}/places?order=recent&page=#{counter}"))
 
@@ -168,6 +168,39 @@ end
 
 seed_cities(['San Francisco'])
 
+def seed_ratings
+  beers_array = Beer.pluck(:name)
+  p beers_array 
+  beers_array.each do |beer_name|
+    scrape_search_page(beer_name) 
+  end
+end
+  
+def scrape_search_page(beer_name)
+  beer = beer_name.gsub(" ", "+")
+  # puts "http://beeradvocate.com/search?q=#{beer}&qt=beer"
+  ba_searchpage = Nokogiri::HTML(open("http://beeradvocate.com/search?q=#{beer}&qt=beer"))
+  first_beer = ba_searchpage.css('ul').children.css('a').first
+  first_url = first_beer.attributes["href"].value
+    if first_url == 'lost-password/'
+      not_rated = Beer.find_by(name: beer_name)
+      p not_rated = Beer.find_by(name: beer_name)
+      not_rated.update(rating: "NR")
+      # puts "#{beer_name.to_s} : Not yet rated"
+    else
+      #start on individual beer page
+      scrape_profile_page(beer_name, first_url)
+    end
+end
+  
+  
+def scrape_profile_page(name, url)
+  profile_page = Nokogiri::HTML(open("http://beeradvocate.com#{url}"))
+  rating_value = profile_page.css("span.ba-score").children.text.to_i
+  # puts "#{name.to_s} : #{rating_value}"
+  add_rating = Beer.find_by(name: name)
+  add_rating.update(rating: rating_value.to_s)  
+end
 
-
+seed_ratings
 
