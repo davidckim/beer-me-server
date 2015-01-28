@@ -105,7 +105,6 @@ def seed_cities(city_array)
         if @restaurant != ''
 
           beers_in_restaurants = Nokogiri::HTML(open("https://www.beermenus.com#{link}"))
-
           @location_info = beers_in_restaurants.css('ul:first-child li:nth-child(2)').text.strip.to_s
           @address = @location_info.strip.match(/^\d{1,}\s(\w|\s|\D){1,25}(\D|,)\s[a-zA-Z]{1,}(\s|.)/).to_s.gsub(/\r\n/," ")
           @zip_code = @location_info.match(/\d{5}/).to_s
@@ -132,8 +131,9 @@ def seed_cities(city_array)
                     if @beer_name_search_comp  == 'timmermans-strawberry' || @beer_name_search_comp == nil
                       @beer_pic = 'http://i.imgur.com/jeJp7f6.png'
                     else
-                      @image_scrape = Nokogiri::HTML(open("https://www.beermenus.com/beers/#{@beer_name_search_comp}")).css('img')[1].attribute('src').to_s
-
+                      @beer_page = Nokogiri::HTML(open("https://www.beermenus.com/beers/#{@beer_name_search_comp}"))
+                      @description = @beer_page.css('div.description').children.text.gsub(/\n/, "").squeeze.gsub(/^\s/, '')
+                      @image_scrape = @beer_page.css('img')[1].attribute('src').to_s
                       if @image_scrape.include?('https') && @image_scrape.include?('thumb')
                         @beer_pic = @image_scrape
                       else
@@ -141,7 +141,7 @@ def seed_cities(city_array)
                       end
                     end
 
-                    @new_beer = Beer.create(name: @beer, abv: @abv, price: @price, image: @beer_pic)
+                    @new_beer = Beer.create(name: @beer, abv: @abv, price: @price, image: @beer_pic, desc: @description)
                     @new_beer.locations << Location.create({name: @restaurant, address: @address, zip_code: @zip_code})
                   else
                     if !@existing_beer.locations.find_by(name: @restaurant)
@@ -214,4 +214,5 @@ def scrape_profile_page(url, db_name)
 end
 
 seed_ratings
+
 
